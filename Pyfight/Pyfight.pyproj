@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fcb133f5-e9da-4406-858a-67fd1837de68</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Pyfight.py</StartupFile>
+    <StartupFile>fight.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="fight.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Pyfight.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

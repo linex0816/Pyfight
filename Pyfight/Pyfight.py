@@ -10,8 +10,8 @@ import time
 import struct  
 import numpy as np 
 
-model = cv2.imread("model.jpg",0)#导入灰度图像 
-img2 = cv2.imread("0.jpg",0) 
+model = cv2.imread("model.jpg",0)#导入模型图像 
+img2 = cv2.imread("0.jpg",0)  #导入目标图像
 
 def drawMatches(img1, kp1, img2, kp2, matches): 
     modelrows = model.shape[0] 
@@ -23,10 +23,10 @@ def drawMatches(img1, kp1, img2, kp2, matches):
     #拼接图像 
     out[:modelrows, :modelcols] = np.dstack([model, model,model]) 
     out[:rows2, modelcols:] = np.dstack([img2, img2,img2]) 
-
+    #在匹配的matches中循环查找
     for mat in matches: 
-        model_idx = mat.queryIdx 
-        img2_idx = mat.trainIdx 
+        model_idx = mat.queryIdx #模型图像中的描述符的索引 
+        img2_idx = mat.trainIdx  #目标图像中描述符的索引
 
         (modelx,modely) = modelkp[model_idx].pt 
         (x2,y2) = kp2[img2_idx].pt 
